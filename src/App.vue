@@ -1,26 +1,54 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="header">
+    <div class="post">
+      <div><strong>Название:</strong> Пост о Javascript</div>
+      <div><strong>Описание:</strong> JS - универсальный язык программирования</div>
+    </div>
+    <div class="post">
+      <div><strong>Название:</strong> Пост о Javascript</div>
+      <div><strong>Описание:</strong> JS - универсальный язык программирования</div>
+    </div>
+    <div class="post">
+      <div><strong>Название:</strong> Пост о Javascript</div>
+      <div><strong>Описание:</strong> JS - универсальный язык программирования</div>
+    </div>
+  </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  export default {
+    data() {
+      return {
+        likes: 0,
+        dislikes: 0,
+      }
+    },
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+    methods: {
+      addLike() {
+        this.likes += 1
+      },
+
+      addDislike() {
+        this.dislikes += 1
+      }
+    }
   }
-}
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .post {
+    padding: 15px;
+    border: 1px solid teal;
+  }
+
 </style>
