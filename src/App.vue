@@ -1,37 +1,35 @@
 <template>
-  <div class="header">
-    <div class="post">
-      <div><strong>Название:</strong> Пост о Javascript</div>
-      <div><strong>Описание:</strong> JS - универсальный язык программирования</div>
-    </div>
-    <div class="post">
-      <div><strong>Название:</strong> Пост о Javascript</div>
-      <div><strong>Описание:</strong> JS - универсальный язык программирования</div>
-    </div>
-    <div class="post">
-      <div><strong>Название:</strong> Пост о Javascript</div>
-      <div><strong>Описание:</strong> JS - универсальный язык программирования</div>
-    </div>
+  <div class="app">
+    <post-form
+        @create="createPost"
+    />
+    <post-list
+        :posts="posts"
+    />
   </div>
-
 </template>
 
 <script>
+  import PostList from '@/components/PostList.vue'
+  import PostForm from '@/components/PostForm'
+
   export default {
+    components: {
+      PostForm, PostList
+    },
     data() {
       return {
-        likes: 0,
-        dislikes: 0,
+        posts: [
+          {id: 1, title: 'JavaScript', body: 'Just a text'},
+          {id: 2, title: 'TypeScript', body: 'Type your text here'},
+          {id: 3, title: 'Vue.JS', body: 'Could it work?'},
+        ],
       }
     },
 
     methods: {
-      addLike() {
-        this.likes += 1
-      },
+      createPost(post) {
 
-      addDislike() {
-        this.dislikes += 1
       }
     }
   }
@@ -44,11 +42,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100%;
   }
 
-  .post {
-    padding: 15px;
-    border: 1px solid teal;
+  .app {
+    padding: 20px;
   }
+
 
 </style>
