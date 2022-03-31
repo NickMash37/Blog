@@ -29,7 +29,7 @@
 
     methods: {
       createPost(post) {
-
+        console.log(post)
       }
     }
   }
